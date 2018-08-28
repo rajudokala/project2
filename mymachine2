@@ -1,5 +1,5 @@
 
-sts: web
+hosts: web
   tasks:
 
      - package: name={{ item }} state=present
