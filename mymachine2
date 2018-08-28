@@ -1,0 +1,20 @@
+
+sts: web
+  tasks:
+
+     - package: name={{ item }} state=present
+       with_items:
+           - epel-release
+           - httpd
+           - php
+           - php-mysql
+           - php-gd
+           - phpmyadmin
+           - git
+           - mariadb-server
+
+     - service: name=httpd state=started enabled=yes
+     - git: repo=https://github.com/demoglot/php.git dest=/var/www/html
+     - service: name=firewalld state=stopped
+     - service: name= mariadb state=started enabled=yes
+
